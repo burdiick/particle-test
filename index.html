@@ -6,12 +6,33 @@
         <title>Particle Test</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  		<script type="text/javascript" src="test.js"></script>
+		<script src="http://cdn.jsdelivr.net/sparkjs/0.5.2/spark.min.js"></script>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     </head>
     <body>
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+		<div id="spark-login">
 
+			<script>
+
+
+    		var token = 'c4680ceeb02df70e5137a333d06c48ba4365bb1b';
+    spark.on('login', function() {
+        //Get all events
+        spark.callFunction('55ff6e065075555308401787','led', 'off', function(err, data) {
+  if (err) {
+    console.log('An error occurred:', err);
+  } else {
+    console.log('Function called succesfully:', data);
+  }
+});
+    });
+    // Login as usual
+    spark.login({ username: 'nick.melin@gmail.com', password: 'qwerlkjh'});
+    spark.login({ accessToken: token });
+
+			</script>
+		</div>
 
     </body>
 </html>
